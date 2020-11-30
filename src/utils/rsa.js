@@ -1,0 +1,20 @@
+
+import {Base64} from 'js-base64'
+import JSEncrypt from 'jsencrypt';
+export default {
+    // 用法
+    // let key = AES.getKey();
+    // let rsaEncryptKey = RSA.encrypt(key.toString());
+    // // console.log("RSA加密AES公钥结果: ", rsaEncryptKey)
+    // localStorage.setItem('encryptKey', rsaEncryptKey)
+    // values.password = AES.encrypt(key,MD5(values.password))
+    getPublicKey(){
+        return Base64.decode("MzA4MjAxMjIzMDBEMDYwOTJBODY0ODg2RjcwRDAxMDEwMTA1MDAwMzgyMDEwRjAwMzA4MjAxMEEwMjgyMDEwMTAwQjcyRkQyM0NFRUUwNzAyNEQ0QUY4RUIzM0Y3RUQ5QjRFREQ1QzlGQ0ZBNzBDM0E0OUJDRjhDOTA3NzQ0QURDNTJFRDg3RUZFNDE3QzFERUJBOThBQkQ5RTA0NDJEQTFFNzQ5MjY0NzNFMTg5QkJDRjZGODFGN0JGN0ZFODQxQTBBOTIzQjkxNkI0N0RDMzJCOUNFMUIyNzBBRDY4OTBCQTEzQTI2NjcyRkQyMEUzRDdDM0VGODUzRTVFRTMyMEJBMzcyNkRFN0JFM0I4MUIwRDU3OEUzNjgzNjIxNzRERUNFNjM3MDBEMDQ5M0E1OEYzNkYwMkI0ODlBREQ2NDQ1RTkyMEVFNjg1N0Q1OTBDOTg0NkNBN0E0QjNGN0MwRURGQ0JEMjU4NzIyQjUzMDExNURDRUEzNzcyOUFERTQ4MzNDNDg4NkZGNDY2N0E1NzM2RUY2NjE1RkQzOTdGRjdCMjBDOTRENTJEODMyNzk3RUU4QkY4MUM3QUZEQjc3RTNBNzJERTRCRDcxODdGRTU3QzMzOTU5MDZDMTMxQTlGNDRBQTA2Njc1NDA0RDQwRkZFNEMwNDY2MjhFQTVBMDExOERGQTdBNTIwRUMzNUFBQTk0MzU0MDdDNjE0N0JDMzJEREQ3N0U0OTA2NUIzQ0QyNkFGMzBCOTU2MzYyMDM1RjkwMjAzMDEwMDAx")
+    },
+    encrypt(centent){
+        const RSA = new JSEncrypt();
+        RSA.setPublicKey(this.getPublicKey());
+        return RSA.encrypt(centent);
+    }
+
+}
